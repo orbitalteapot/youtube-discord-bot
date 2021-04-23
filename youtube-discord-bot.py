@@ -10,7 +10,7 @@ _id = 42 # Channel id
 _token = os.environ['DISCORD_TOKEN']
 _log_maxBytes = 5000 # Log size in bytes
 _log_backupCount = 5 # History length
-_task_looptime_sec = 10.0 # Checking for new fishposts interval
+_task_looptime_sec = 10.0 # Checking for updates interval
 
 class QuoteManager():
 	def get_quote(self):
@@ -31,7 +31,7 @@ class QuoteManager():
 async def on_ready():
     # Prints login time and username to file
     logger.info('We have logged in as {0.user}'.format(_client))
-    # Starts GetFishystuff task
+    # Starts Check_For_Updates task
     Check_For_Updates.start()
 
 @_client.event
